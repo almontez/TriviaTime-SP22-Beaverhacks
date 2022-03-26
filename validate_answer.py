@@ -1,9 +1,10 @@
 class QuizBrain:
 
-    def __init__(self, questions):
+    def __init__(self, name, questions):
         self.question_no = 0
         self.score = 0
         self.questions = questions
+        self.name = name
         self.current_question = None
 
     def has_more_questions(self):
@@ -35,3 +36,13 @@ class QuizBrain:
         wrong = self.question_no - self.score
         score_percent = int(self.score / self.question_no * 100)
         return (self.score, wrong, score_percent)
+
+    def get_name(self):
+        """Returns the name of the player"""
+
+        return self.name
+
+    def get_name_score(self):
+        """Returns the name and score of the player as a string"""
+
+        print(f'{self.name}:   {self.score}')
