@@ -186,7 +186,10 @@ class QuestionUI:
 
         # get player score from backend
         score = f"Your Score: {self._quiz.get_score()}"
+
+        # initialize variables
         whoop = ''
+        trophy_img = Image.open("Assets/trophy.jpg")
 
         # set initial x and y positions for labels
         x_pos = self._fframe.winfo_width() // 2
@@ -237,7 +240,6 @@ class QuestionUI:
         score_label.place(x=x_pos, y=y_pos - 125, anchor="center")
 
         # open and edit score image
-        trophy_img = Image.open("Assets/trophy.jpg")
         trophy_resize = trophy_img.resize((300, 300))
         trophy_final = ImageTk.PhotoImage(trophy_resize)
 
