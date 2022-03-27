@@ -23,6 +23,7 @@ class QuestionUI:
         self._fframe = Frame(self._window, width=900, height=600)
         self._fframe.pack(fill=Y, anchor="center")
 
+        self._player_name = StringVar()
         self.first_screen()
         self._window.mainloop()
 
@@ -30,6 +31,9 @@ class QuestionUI:
         """docstring"""
         # add image to canvas
         self.clear_frame()
+
+        player_name = self._player_name.get()
+        self._quiz.store_user_name(player_name)
 
         x_pos = self._fframe.winfo_width() // 2
         y_pos = self._fframe.winfo_height() // 2
@@ -193,6 +197,13 @@ class QuestionUI:
         background.image = background_image
         background.place(x=0, y=0)
 
+        name_label = Label(self._fframe, text="Enter Player Name", font=("Arial", 11), bg="#FAF9F6")
+        name_label.place(x=580, y=360)
+
+        player_name = Entry(self._fframe, relief="flat", justify="center", font=("Arial", 14),
+                            textvariable=self._player_name)
+        player_name.place(x=530, y=390)
+
         books_img = Image.open("Assets/pink_bubble_books.png")
         books_resize = books_img.resize((150, 118))
         books_final = ImageTk.PhotoImage(books_resize)
@@ -246,11 +257,6 @@ class QuestionUI:
                    "\n\nKeep winning to earn badges!"
         sub_text_label = Label(self._fframe, text=sub_text, font=("Arial", 11), bg="#8FEBFF", wrap=340)
         sub_text_label.place(x=490, y=270)
-
-        name_label = Label(self._fframe, text="Enter Player Name", font=("Arial", 11), bg="#FAF9F6")
-        name_label.place(x=580, y=360)
-        player_name = Entry(self._fframe, relief="flat", justify="center", font=("Arial", 14))
-        player_name.place(x=530, y=390)
 
         self._window.mainloop()
         return
