@@ -64,3 +64,12 @@ class QuizBrain:
     def get_score(self):
         """Gets the score"""
         return self._score
+
+    def store_user_name(self, user_name):
+        """docstring"""
+        self._user_name = user_name
+        return
+
+    def get_user_name(self):
+        """docstring"""
+        return self._user_name
