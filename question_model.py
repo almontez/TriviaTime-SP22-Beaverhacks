@@ -3,42 +3,42 @@ from random import shuffle
 import html
 
 class Question:
-    """Docstring"""
+    """Question class with methods for get question methods and choices and correct answers"""
 
     def __init__(self, question, correct_answer, choices):
-        """Docstring"""
+        """Initializing 3 variables: question, correct_answer, and choices"""
         self._question = question
         self._correct_answer = correct_answer
         self._choices = choices
 
     def get_question(self):
-        "Docstring"
+        "gets the question from the question api"
         return self._question
 
     def get_correct_answer(self):
-        """docstring"""
+        """gets the correct answers from question api"""
         return self._correct_answer
 
     def get_choices(self):
-        """Docstring"""
+        """get the choices from question api"""
         return self._choices
 
 class QuizBrain:
-    """docstring"""
+    """The background works of the quiz"""
 
     def __init__(self, questions):
-        """Docstring"""
+        """Initializing 4 variables: question no, score, questions, and current question"""
         self._question_no = 0
         self._score = 0
         self._questions = questions
         self._current_question = None
 
     def has_more_questions(self):
-        """docstring"""
+        """Sees if question number is smaller than the number of questions"""
         return self._question_no < len(self._questions)
 
     def get_question(self):
-        """Docstring"""
+        """Gets current question, increases question answered by 1"""
         self._current_question = self._questions[self._question_no]
         self._question_no += 1
 
@@ -47,11 +47,12 @@ class QuizBrain:
         return f"Q{self._question_no}: {q_text}"
 
     def get_answer_choices(self):
-        """Docstring"""
+        """Gets answer choices"""
         answer_choices = self._current_question.get_choices()
         return answer_choices
 
     def check_answer(self, player_selection):
+        """Check whether the answer is correct, if true, add one to score, if not, displays correct answers"""
         correct_answer = self._current_question.get_correct_answer()
 
         if player_selection.lower() == correct_answer.lower():
@@ -61,5 +62,5 @@ class QuizBrain:
             return (False, correct_answer)
 
     def get_score(self):
-        """Docstring"""
+        """Gets the score"""
         return self._score
