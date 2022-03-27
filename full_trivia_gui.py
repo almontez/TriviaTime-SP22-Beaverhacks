@@ -17,6 +17,8 @@ class QuestionUI:
         # create quiz base/window
         self._window = Tk()
         self._window.geometry("900x600")
+        self._window.title("Trivia Time!")
+        self._window.resizable(False, False)
 
         self._fframe = Frame(self._window, width=900, height=600)
         self._fframe.pack(fill=Y, anchor="center")
@@ -186,72 +188,69 @@ class QuestionUI:
 
     def first_screen(self):
         """docstring"""
-        x_pos = self._fframe.winfo_width() // 2
-        y_pos = self._fframe.winfo_height() // 2
-
-        homepg_img = Image.open("Assets/homepage_image.jpg")
-        homepg_resize = homepg_img.resize((900, 600))
-        homepg_final = ImageTk.PhotoImage(homepg_resize)
-
-        homepg_label = Label(self._fframe, image=homepg_final)
-        homepg_label.place(x=x_pos, y=y_pos)
-
-        blue_bckgrd = Label(homepg_label, width=113, height=33, bg="#AFEEEE")
-        blue_bckgrd.place(x=x_pos + 50, y=y_pos + 50, anchor="nw")
+        background_image = PhotoImage(file="Assets/background_image_with_badges.png")
+        background = Label(self._fframe, image=background_image)
+        background.image = background_image
+        background.place(x=0, y=0)
 
         books_img = Image.open("Assets/pink_bubble_books.png")
-        books_resize = books_img.resize((150, 150))
+        books_resize = books_img.resize((150, 118))
         books_final = ImageTk.PhotoImage(books_resize)
 
-        books_btn = Button(self._fframe, image=books_final, bg="#AFEEEE", relief="flat",
-                           activebackground="#AFEEEE", command=self.question_frame)
-        books_btn.place(x=75, y=75)
-
-        math_img = Image.open("Assets/red_bubble_math.png")
-        math_resize = math_img.resize((160, 160))
-        math_final = ImageTk.PhotoImage(math_resize)
-
-        math_btn = Button(self._fframe, image=math_final, bg="#AFEEEE", relief="flat",
-                          activebackground="#AFEEEE")
-        math_btn.place(x=70, y=365)
+        books_btn = Button(self._fframe, image=books_final, bg="#8FEBFF", relief="flat",
+                           activebackground="#8FEBFF", command=self.question_frame)
+        books_btn.image = books_final
+        books_btn.place(x=280, y=65)
 
         art_img = Image.open("Assets/green_bubble_art.png")
-        art_resize = art_img.resize((140, 140))
+        art_resize = art_img.resize((150, 143))
         art_final = ImageTk.PhotoImage(art_resize)
 
-        art_btn = Button(self._fframe, image=art_final, bg="#AFEEEE", relief="flat",
-                         activebackground="#AFEEEE")
-        art_btn.place(x=110, y=235)
+        art_btn = Button(self._fframe, image=art_final, bg="#8FEBFF", relief="flat",
+                         activebackground="#8FEBFF")
+        art_btn.image = art_final
+        art_btn.place(x=315, y=180)
+
+        math_img = Image.open("Assets/red_bubble_math.png")
+        math_resize = math_img.resize((180, 100))
+        math_final = ImageTk.PhotoImage(math_resize)
+
+        math_btn = Button(self._fframe, image=math_final, bg="#8FEBFF", relief="flat",
+                          activebackground="#8FEBFF")
+        math_btn.image = math_final
+        math_btn.place(x=280, y=310)
 
         science_img = Image.open("Assets/teal_bubble_science.png")
-        science_resize = science_img.resize((200, 200))
+        science_resize = science_img.resize((180, 186))
         science_final = ImageTk.PhotoImage(science_resize)
 
-        science_btn = Button(self._fframe, image=science_final, bg="#AFEEEE", relief="flat",
-                             activebackground="#AFEEEE")
-        science_btn.place(x=250, y=100)
+        science_btn = Button(self._fframe, image=science_final, bg="#8FEBFF", relief="flat",
+                             activebackground="#8FEBFF")
+        science_btn.image = science_final
+        science_btn.place(x=85, y=230)
 
         history_img = Image.open("Assets/yellow_bubble_history.png")
-        history_resize = history_img.resize((200, 200))
+        history_resize = history_img.resize((180, 151))
         history_final = ImageTk.PhotoImage(history_resize)
 
-        history_btn = Button(self._fframe, image=history_final, bg="#AFEEEE", relief="flat",
-                             activebackground="#AFEEEE")
-        history_btn.place(x=250, y=325)
+        history_btn = Button(self._fframe, image=history_final, bg="#8FEBFF", relief="flat",
+                             activebackground="#8FEBFF")
+        history_btn.image = history_final
+        history_btn.place(x=85, y=75)
 
         title_text = "It's Trivia Time!"
-        title_label = Label(self._fframe, text=title_text, font=("Snap ITC", 45), bg="#AFEEEE", wrap=350)
-        title_label.place(x=525, y=100)
+        title_label = Label(self._fframe, text=title_text, font=("Snap ITC", 36), bg="#8FEBFF", wrap=300)
+        title_label.place(x=550, y=75)
 
-        sub_text = "Click on a category to test your knowledge! Score at least a 7 out of 10 to earn a badge." \
-                   "\n\nKeep playing to earn badges!"
-        sub_text_label = Label(self._fframe, text=sub_text, font=("Ariel", 12), bg="#AFEEEE", wrap=340)
-        sub_text_label.place(x=490, y=350)
+        sub_text = "Click on a category to test your knowledge! \nScore at least a 7 out of 10 to win a game." \
+                   "\n\nKeep winning to earn badges!"
+        sub_text_label = Label(self._fframe, text=sub_text, font=("Arial", 11), bg="#8FEBFF", wrap=340)
+        sub_text_label.place(x=490, y=270)
 
-        name_label = Label(self._fframe, text="Enter Player Name", font=("Ariel", 12), bg="#AFEEEE")
-        name_label.place(x=575, y=450)
-        player_name = Entry(self._fframe, relief="flat", justify="center", font=("Ariel", 16))
-        player_name.place(x=525, y=475)
+        name_label = Label(self._fframe, text="Enter Player Name", font=("Arial", 11), bg="#FAF9F6")
+        name_label.place(x=580, y=360)
+        player_name = Entry(self._fframe, relief="flat", justify="center", font=("Arial", 14))
+        player_name.place(x=530, y=390)
 
         self._window.mainloop()
         return
