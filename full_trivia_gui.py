@@ -146,7 +146,7 @@ class QuestionUI:
         x_pos = self._fframe.winfo_width() // 2
         y_pos = self._fframe.winfo_height() // 2
 
-        player_name = "Angela Montez"  # Sample Function Call: self._quiz.get_player_name()
+        player_name = self._quiz.get_user_name()
 
         if self._quiz.get_score() < 5:
             whoop = "Try better next time " + player_name + "!"
