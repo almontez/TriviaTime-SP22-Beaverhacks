@@ -56,8 +56,8 @@ class QuestionUI:
 
     def set_player_answ(self, player_choice):
         """Docstring"""
-        # play sound
-        playsound("Assets/zapsplat_click1.mp3")
+        # # play sound
+        # playsound("Assets/zapsplat_click1.mp3")
 
         # store player answer in variable
         player_choice = player_choice
@@ -99,9 +99,9 @@ class QuestionUI:
     def next_question(self):
         """Docstring"""
 
-        # play click sound
-        playsound("Assets/zapsplat_click1.mp3")
-        self.clear_frame()
+        # # play click sound
+        # playsound("Assets/zapsplat_click1.mp3")
+        # self.clear_frame()
 
         if self._quiz.has_more_questions():
             self.display_question()

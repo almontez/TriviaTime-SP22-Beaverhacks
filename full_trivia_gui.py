@@ -60,8 +60,8 @@ class QuestionUI:
         self.display_answer_choices()
 
     def set_player_answ(self, player_choice):
-        """Docstring"""
-        playsound("Assets/zapsplat_click1.mp3")
+        # """Docstring"""
+        # playsound("Assets/zapsplat_click1.mp3")
 
         # store player answer in variable
         player_choice = player_choice
@@ -116,8 +116,8 @@ class QuestionUI:
     def next_question(self):
         """Docstring"""
 
-        # play click sound
-        playsound("Assets/zapsplat_click1.mp3")
+        # # play click sound
+        # playsound("Assets/zapsplat_click1.mp3")
         self.clear_frame()
 
         if self._quiz.has_more_questions():
@@ -141,7 +141,22 @@ class QuestionUI:
         y_pos = self._fframe.winfo_height() // 2
 
         player_name = "Angela Montez"  # Sample Function Call: self._quiz.get_player_name()
-        whoop = "Congratulations! " + player_name
+
+        if self._quiz.get_score() < 5:
+            whoop = "Try better next time " + player_name + "!"
+            trophy_img = Image.open("Assets/empty_tamagotchi_badge_100x100.png")
+
+        if self._quiz.get_score() == 5:
+            whoop = "Nicely done, " + player_name + "! Keep it up!"
+            trophy_img = Image.open("Assets/tamagotchi_badge_100x100.jpg")
+
+        if self._quiz.get_score() == 6:
+            whoop = "Bring it, " + player_name + "!"
+            trophy_img = Image.open("Assets/boombox_badge_100x100.jpg")
+
+        if self._quiz.get_score() == 7:
+            whoop = "You are the champion, " + player_name + "!"
+            trophy_img = Image.open("Assets/trophy.jpg")
 
         question_img = Image.open("Assets/quiz_question_background_900x600.jpg")
         question_resize = question_img.resize((900, 600))
@@ -161,7 +176,6 @@ class QuestionUI:
                             bg="#FFD700", bd=0, width=45, wrap=680)
         score_label.place(x=x_pos, y=y_pos - 125, anchor="center")
 
-        trophy_img = Image.open("Assets/trophy.jpg")
         trophy_resize = trophy_img.resize((300, 300))
         trophy_final = ImageTk.PhotoImage(trophy_resize)
 
