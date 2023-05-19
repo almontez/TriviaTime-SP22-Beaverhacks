@@ -1,7 +1,6 @@
-## Trivia Time!
+# Trivia Time!
 
-## Video Demo
-[![Watch the video](https://img.youtube.com/vi/Z1xYK7V6Klw&t=5s&ab_channel=AbbyLouiseThornton/maxresdefault.jpg)](https://www.youtube.com/watch?v=Z1xYK7V6Klw&t=5s&ab_channel=AbbyLouiseThornton)
+[![Watch the video](https://img.youtube.com/vi/Z1xYK7V6Klw/maxresdefault.jpg)](https://www.youtube.com/watch?v=Z1xYK7V6Klw&t=5s&ab_channel=AbbyLouiseThornton)
 
 ## Inspiration
 We built Trivia Time! with the goal of making learning fun. We want to encourage middle school students to be lifelong learners because the ability and desire to learn is a key tool for success in any field and any stage of life. With Trivia Time! educators and parents now have an additional resource to enhance student engagement and development. **Trivia Time! because playing is learning!** 
