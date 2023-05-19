@@ -1,6 +1,6 @@
 # Trivia Time!
 
-Click to view YouTube Demo of Trivia Time
+Click Image to view YouTube Demo of Trivia Time
 [![](https://img.youtube.com/vi/Z1xYK7V6Klw/maxresdefault.jpg)](https://www.youtube.com/watch?v=Z1xYK7V6Klw&t=5s&ab_channel=AbbyLouiseThornton)
 
 ## Inspiration
